@@ -1,0 +1,50 @@
+﻿<Page x:Class="SQLiteWPF.View.CompanyView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SQLiteWPF.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" 
+      d:DesignWidth="800"
+      Title="数据库" >
+    <Page.Resources >
+        <Style x:Key="DataGridTextColumnCenterSytle" TargetType="{x:Type TextBlock}">
+
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button  Width="60" Height="30" Content="N:E导入" Command="{Binding TestCommand}" CommandParameter="N:E导入"  Margin="10,0,730,0"/>
+        <Button  Width="60" Height="30" Content="N:E导出" Command="{Binding TestCommand}" CommandParameter="N:E导出"  Margin="89,0,651,0"/>
+        <Button  Width="60" Height="30" Content="N:W导出" Command="{Binding TestCommand}" CommandParameter="N:W导出"  Margin="170,0,570,0"/>
+        <Button  Width="60" Height="30" Content="S:装载"  Command="{Binding TestCommand}" CommandParameter="S:装载"   Margin="303,0,437,0"/>
+        <Button  Width="60" Height="30" Content="S:清空"  Command="{Binding TestCommand}" CommandParameter="S:清空"   Margin="381,5,359,5"/>
+        <Button  Width="60" Height="30" Content="I:P导出" Command="{Binding TestCommand}" CommandParameter="I:P导出"   Margin="474,5,266,5"/>
+        <Button  Width="60" Height="30" Content="M:E导入" Command="{Binding TestCommand}" CommandParameter="M:E导入"  Margin="563,0,177,0"/>
+        <Button  Width="60" Height="30" Content="M:E导出" Command="{Binding TestCommand}" CommandParameter="M:E导出"  Margin="645,0,95,0"/>
+        <Button  Width="60" Height="30" Content="M:W导出" Command="{Binding TestCommand}" CommandParameter="M:W导出"  Margin="730,0,10,0" />
+        <DataGrid Grid.Row="1" Margin="10,10,10,10"  x:Name="DevGrid" ItemsSource="{Binding CompanyData}"   AutoGenerateColumns="False"  CanUserAddRows="True" >
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="MenuItem1" Header="装载" Command="{Binding TestCommand}" CommandParameter="S:装载"/>
+                    <MenuItem Name="MenuItem2" Header="清空" Command="{Binding TestCommand}" CommandParameter="S:清空"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="序号"      ElementStyle="{StaticResource  DataGridTextColumnCenterSytle}"  IsReadOnly="True"  Width="0.15*" Binding="{Binding Number}"  />
+                <DataGridTextColumn Header="名字"      ElementStyle="{StaticResource  DataGridTextColumnCenterSytle}"  IsReadOnly="True"  Width="0.15*" Binding="{Binding Name}"  />
+                <DataGridTextColumn Header="地址"      ElementStyle="{StaticResource  DataGridTextColumnCenterSytle}"  IsReadOnly="True"  Width="0.15*" Binding="{Binding Address}"  />
+                <DataGridTextColumn Header="联系电话"  ElementStyle="{StaticResource  DataGridTextColumnCenterSytle}"  IsReadOnly="True"  Width="0.25*" Binding="{Binding Telephone}"  />
+                <DataGridTextColumn Header="法人"      ElementStyle="{StaticResource  DataGridTextColumnCenterSytle}"  IsReadOnly="True"  Width="0.15*" Binding="{Binding LegalPerson}"   />
+                <DataGridTextColumn Header="注册日期"  ElementStyle="{StaticResource  DataGridTextColumnCenterSytle}"  IsReadOnly="True"  Width="0.25*" Binding="{Binding RegistrationDate}"   />
+           
+ </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

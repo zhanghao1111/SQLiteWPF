@@ -1,0 +1,22 @@
+﻿[*.cs]
+
+# CA2100: 检查 SQL 查询是否存在安全漏洞
+dotnet_diagnostic.CA2100.severity = none
+
+# CA2000: 丢失范围之前释放对象
+dotnet_diagnostic.CA2000.severity = none
+
+# IDE0058: 永远不会使用表达式值
+csharp_style_unused_value_expression_statement_preference = unused_local_variable:none
+
+# CA1303: 请不要将文本作为本地化参数传递
+dotnet_diagnostic.CA1303.severity = none
+
+# CA1305: 指定 IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# CA1307: 指定 StringComparison
+dotnet_diagnostic.CA1307.severity = none
+
+# IDE0055: 修正格式
+dotnet_diagnostic.IDE0055.severity = none
